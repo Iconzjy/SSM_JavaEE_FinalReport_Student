@@ -1,0 +1,41 @@
+body {
+    padding-top: 60px;
+}
+
+div.listDIV {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+div.editDIV {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+div.addDIV {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+nav.pageDIV {
+    text-align: center;
+}
+
+
+table.addTable {
+    width: 100%;
+    padding: 5px;
+}
+
+table.addTable td {
+    padding: 5px;
+}
+
+table.editTable {
+    width: 100%;
+    padding: 5px;
+}
+
+table.editTable td {
+    padding: 5px;
+}

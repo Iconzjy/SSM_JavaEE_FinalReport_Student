@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springmvc.dao.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.springmvc.entity.Course" >
+    <id column="c_id" property="cId" jdbcType="INTEGER" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+    <result column="c_teacherID" property="cTeacherid" jdbcType="INTEGER" />
+    <result column="c_room" property="cRoom" jdbcType="VARCHAR" />
+    <result column="c_maxStudentNum" property="cMaxstudentnum" jdbcType="INTEGER" />
+    <result column="collegeId" property="collegeid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    c_id, c_name, c_teacherID, c_room, c_maxStudentNum, collegeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springmvc.entity.Course" >
+    insert into course (c_id, c_name, c_teacherID, 
+      c_room, c_maxStudentNum, collegeId
+      )
+    values (#{cId,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{cTeacherid,jdbcType=INTEGER}, 
+      #{cRoom,jdbcType=VARCHAR}, #{cMaxstudentnum,jdbcType=INTEGER}, #{collegeid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.springmvc.entity.Course" >
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cId != null" >
+        c_id,
+      </if>
+      <if test="cName != null" >
+        c_name,
+      </if>
+      <if test="cTeacherid != null" >
+        c_teacherID,
+      </if>
+      <if test="cRoom != null" >
+        c_room,
+      </if>
+      <if test="cMaxstudentnum != null" >
+        c_maxStudentNum,
+      </if>
+      <if test="collegeid != null" >
+        collegeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cId != null" >
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacherid != null" >
+        #{cTeacherid,jdbcType=INTEGER},
+      </if>
+      <if test="cRoom != null" >
+        #{cRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="cMaxstudentnum != null" >
+        #{cMaxstudentnum,jdbcType=INTEGER},
+      </if>
+      <if test="collegeid != null" >
+        #{collegeid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springmvc.entity.Course" >
+    update course
+    <set >
+      <if test="cName != null" >
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacherid != null" >
+        c_teacherID = #{cTeacherid,jdbcType=INTEGER},
+      </if>
+      <if test="cRoom != null" >
+        c_room = #{cRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="cMaxstudentnum != null" >
+        c_maxStudentNum = #{cMaxstudentnum,jdbcType=INTEGER},
+      </if>
+      <if test="collegeid != null" >
+        collegeId = #{collegeid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springmvc.entity.Course" >
+    update course
+    set c_name = #{cName,jdbcType=VARCHAR},
+      c_teacherID = #{cTeacherid,jdbcType=INTEGER},
+      c_room = #{cRoom,jdbcType=VARCHAR},
+      c_maxStudentNum = #{cMaxstudentnum,jdbcType=INTEGER},
+      collegeId = #{collegeid,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <select id="getTotal" resultType="java.lang.Integer">
+    select count(*) from course
+  </select>
+  <select id="list" resultMap="BaseResultMap">
+        SELECT * FROM course ORDER BY c_id desc limit #{param1}, #{param2}
+    </select>
+  <select id="selectByTeacher" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from course
+    where c_teacherID = #{teacherId,jdbcType=INTEGER}
+  </select>
+</mapper>
