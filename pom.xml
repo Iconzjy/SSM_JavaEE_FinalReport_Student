@@ -193,7 +193,7 @@ https://blog.csdn.net/jianghao233/article/details/81879370
     <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
-      <version>3.1</version>
+      <version>3.2.2</version>
     </dependency>
     <dependency>
       <groupId>commons-codec</groupId>
