@@ -114,7 +114,7 @@ https://blog.csdn.net/jianghao233/article/details/81879370
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <!-- jstl -->
