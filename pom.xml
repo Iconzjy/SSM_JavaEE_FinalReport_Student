@@ -108,7 +108,7 @@ https://blog.csdn.net/jianghao233/article/details/81879370
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.29</version>
+      <version>8.0.28</version>
     </dependency>
     <!-- junit测试包 -->
     <dependency>
