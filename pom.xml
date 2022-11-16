@@ -151,7 +151,7 @@ https://blog.csdn.net/jianghao233/article/details/81879370
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.7.1</version>
+      <version>2.12.7.1</version>
     </dependency>
     <dependency>
       <groupId>net.sf.json-lib</groupId>
